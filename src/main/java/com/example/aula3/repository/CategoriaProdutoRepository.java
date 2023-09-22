@@ -19,11 +19,12 @@ public class CategoriaProdutoRepository {
     private EntityManager entityManager;
 
     @Transactional
-    public CategoriaProduto inserir(CategoriaProduto categoriaProduto){
+    public CategoriaProduto editar(CategoriaProduto categoriaProduto){
         entityManager.persist(categoriaProduto);
         return categoriaProduto;
     }
 
+    @Transactional
     public List<CategoriaProduto> obterTodos(){
         return entityManager.createQuery("from CategoriaProduto", CategoriaProduto.class).getResultList();
     }

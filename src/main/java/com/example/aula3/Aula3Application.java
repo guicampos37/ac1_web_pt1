@@ -8,22 +8,20 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.example.aula3.models.CategoriaCurso;
 import com.example.aula3.models.CategoriaProduto;
-import com.example.aula3.models.Curso;
 import com.example.aula3.models.Produto;
-import com.example.aula3.repository.CategoriaCursoRepository;
 import com.example.aula3.repository.CategoriaProdutoRepository;
-import com.example.aula3.repository.CursoRepository;
 import com.example.aula3.repository.ProdutoRepository;
 
 @SpringBootApplication
 public class Aula3Application {
 
-	@Bean
-	public CommandLineRunner init(@Autowired ProdutoRepository produtoRepository, 
-	@Autowired CategoriaProdutoRepository categoriaProdutoRepository) {
+    @Bean
+    public CommandLineRunner init(
+     @Autowired ProdutoRepository produtoRepository,
+     @Autowired CategoriaProdutoRepository categoriaProdutoRepository) {
 		return args -> {
+
 			produtoRepository.inserir(
 					new Produto((long) 0, "prod1", 2000));
 
@@ -40,9 +38,11 @@ public class Aula3Application {
 			listaProdutos.forEach(System.out::println);
 
 			System.out.println("Inserir Categoria");
-			CategoriaProduto c1 = new CategoriaProduto((long) 0 , "Nivel 1", "Primeiro");
-			categoriaProdutoRepository.inserir(c1);
 
+			CategoriaProduto c1 = new CategoriaProduto((long) 0, "Nivel 1", "Primeiro");
+			categoriaProdutoRepository.editar(c1);
+
+			
 			System.out.println("Exemplo Atualiza");
 			listaProdutos.get(0).setCategoriaProduto(c1);
 			produtoRepository.inserir(listaProdutos.get(0));

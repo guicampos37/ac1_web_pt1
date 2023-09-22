@@ -29,7 +29,7 @@ public class CategoriaProduto {
     }
 
     public CategoriaProduto(Long id, String cat_nome, String cat_descricao) {
-        this.id = id;
+        
         this.cat_nome = cat_nome;
         this.cat_descricao = cat_descricao;
     }
