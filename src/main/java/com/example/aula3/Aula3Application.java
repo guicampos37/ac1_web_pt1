@@ -42,8 +42,6 @@ public class Aula3Application {
 			CategoriaProduto c1 = new CategoriaProduto((long) 0, "Nivel 1", "Primeiro");
 			categoriaProdutoRepository.editar(c1);
 
-			
-			System.out.println("Exemplo Atualiza");
 			listaProdutos.get(0).setCategoriaProduto(c1);
 			produtoRepository.inserir(listaProdutos.get(0));
 
